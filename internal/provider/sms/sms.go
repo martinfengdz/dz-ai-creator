@@ -14,6 +14,9 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+// smsPurposeResetPassword 标记重置密码场景，供 auth_sms 复用
+const smsPurposeResetPassword = "reset_password"
+
 type SMSSender interface {
 	SendVerificationCode(ctx context.Context, phone, purpose, code string) error
 }
