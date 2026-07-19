@@ -55,9 +55,6 @@ func isValidRegisterUsername(username string) bool {
 
 func hashVerificationCode(phone, purpose, code, secret string) string {
 	key := strings.TrimSpace(secret)
-	if key == "" {
-		key = "dz-ai-creator-verification-code"
-	}
 	mac := hmac.New(sha256.New, []byte(key))
 	_, _ = mac.Write([]byte(phone))
 	_, _ = mac.Write([]byte("|"))

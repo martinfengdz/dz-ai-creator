@@ -1,9 +1,13 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"dz-ai-creator/internal/pkg/core"
 )
@@ -23,22 +27,26 @@ func main() {
 		Addr:    listenAddr(),
 		Handler: application.Router(),
 	}
-	log.Printf("listening on %s", server.Addr)
-	log.Fatal(server.ListenAndServe())
-}
 
-func listenAddr() string {
-	addr := os.Getenv("LISTEN_ADDR")
-	if addr != "" {
-		return addr
-	}
-	return ":" + listenPort()
-}
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 
-func listenPort() string {
-	port := os.Getenv("PORT")
-	if port == "" {
-		return "8888"
+	go func() {
+		log.Printf("listening on %s", server.Addr)
+		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("listen: %v", err)
+		}
+	}()
+
+	sig := <-quit
+	log.Printf("shutting down (signal: %v)...", sig)
+
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	if err := server.Shutdown(ctx); err != nil {
+		log.Fatalf("forced shutdown: %v", err)
 	}
-	return port
+
+	log.Println("server exited gracefully")
 }

@@ -52,7 +52,7 @@ func (a *App) issueUserSession(w http.ResponseWriter, r *http.Request, user User
 	if err != nil {
 		return nil, err
 	}
-	http.SetCookie(w, buildCookie(userSessionCookie, token, sessionHours))
+	http.SetCookie(w, buildCookie(userSessionCookie, token, sessionHours, a.secureCookie()))
 	return &IssuedUserSession{Token: token, ExpiresAt: session.ExpiresAt}, nil
 }
 
@@ -81,7 +81,7 @@ func (a *App) issueAdminCookie(w http.ResponseWriter, admin AdminUser, rememberL
 	if err != nil {
 		return err
 	}
-	http.SetCookie(w, buildCookie(adminSessionCookie, token, sessionHours))
+	http.SetCookie(w, buildCookie(adminSessionCookie, token, sessionHours, a.secureCookie()))
 	return nil
 }
 
@@ -118,12 +118,13 @@ func sourceIPAddress(r *http.Request) string {
 	return host
 }
 
-func buildCookie(name, value string, hours int) *http.Cookie {
+func buildCookie(name, value string, hours int, secure bool) *http.Cookie {
 	return &http.Cookie{
 		Name:     name,
 		Value:    value,
 		Path:     "/",
 		HttpOnly: true,
+		Secure:   secure,
 		SameSite: http.SameSiteLaxMode,
 		MaxAge:   hours * int(time.Hour/time.Second),
 	}
@@ -176,3 +177,9 @@ func (a *App) parseSessionToken(tokenValue string) (*SessionClaims, error) {
 	}
 	return claims, nil
 }
+
+func (a *App) secureCookie() bool {
+	return strings.HasPrefix(a.cfg.AppBaseURL, "https://")
+}
+
+
