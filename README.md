@@ -1,6 +1,6 @@
-# 帝赞AI内容创作平台
+# dzai-creator
 
-帝赞AI内容创作平台是一个基于 Go (Gin/GORM)、Vue 3 和 uni-app 的全栈 AI 内容创作解决方案，包含 Web 管理端、移动 H5/微信小程序以及可选的模型、对象存储、短信和支付适配。
+dzai-creator是一个基于 Go (Gin/GORM)、Vue 3 和 uni-app 的全栈 AI 内容创作解决方案，包含 Web 管理端、移动 H5/微信小程序以及可选的模型、对象存储、短信和支付适配。
 
 ## 安全默认值
 
