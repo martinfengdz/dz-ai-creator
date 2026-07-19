@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
-"""Generate deployment secrets for dz-ai-creator."""
-import secrets, base64, os
+"""Generate deployment secrets for dz-ai-creator.
+Run BEFORE first deploy:  python3 scripts/setup-secrets.py
+"""
+import secrets
+import base64
+import os
 
 secrets_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "secrets")
 os.makedirs(secrets_dir, exist_ok=True)
@@ -20,6 +24,5 @@ with open(os.path.join(secrets_dir, "app_secrets_master_key"), "w") as f:
     f.write(master_key)
 print("[✓] app_secrets_master_key")
 
-print(f"\n===== Secrets generated at {secrets_dir}/ =====")
-print("After first start, import business credentials:")
-print("  dz-ai-creator-admin secrets import-env")
+print(f"\n✅ Secrets generated at {secrets_dir}/")
+print("Next: docker compose -f deploy/compose.yaml up -d")

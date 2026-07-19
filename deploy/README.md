@@ -1,11 +1,13 @@
-# 生产部署指南
+# dz-ai-creator 生产部署指南
+
+> 帝赞AI内容创作平台 — 一键部署
 
 ## 前置要求
 
 - Docker Engine 24+（含 docker compose 插件）
-- 域名 + DNS（可选，用于 HTTPS）
+- 网络畅通（可拉取 ghcr.io 镜像）
 
-## 首次部署
+## 快速部署（5分钟）
 
 ```bash
 # 1. 克隆仓库
@@ -18,34 +20,39 @@ python3 scripts/setup-secrets.py
 # 3. 启动
 docker compose -f deploy/compose.yaml up -d
 
-# 4. 创建管理员账号
-docker exec -it dz-ai-creator-app-1 dz-ai-creator-admin create --username admin
-
-# 5. 导入业务凭据（API Key 等）
-# 先将凭据写入临时环境变量文件，然后：
-docker exec -it dz-ai-creator-app-1 dz-ai-creator-admin secrets import-env
+# 4. 检查运行状态
+docker compose -f deploy/compose.yaml ps
 ```
 
-## 使用预编译镜像（推荐）
-
-该仓库默认通过 GitHub Actions 自动构建 Docker 镜像并推送到 GHCR：
-
-- `ghcr.io/martinfengdz/dz-ai-creator:latest` — 最新 main 分支
-- `ghcr.io/martinfengdz/dz-ai-creator:v1.0.0` — 语义版本标签
-- `ghcr.io/martinfengdz/dz-ai-creator:<sha>` — 短 commit SHA
-
-更新版本：
-
-```bash
-docker compose -f deploy/compose.yaml pull
-docker compose -f deploy/compose.yaml up -d
-```
+启动后访问 http://localhost:8888
 
 ## 升级
 
 ```bash
+cd dz-ai-creator
+git pull
 docker compose -f deploy/compose.yaml pull app
 docker compose -f deploy/compose.yaml up -d
 ```
 
-数据库迁移在启动时自动执行（`STARTUP_DATABASE_MIGRATIONS=bootstrap`）。
+数据库迁移在启动时自动执行。
+
+## 首次使用
+
+1. 创建管理员账号（需要进入容器操作）
+2. 导入业务 API Key
+3. 配置域名（可选）
+
+## 架构
+
+| 组件 | 说明 |
+|------|------|
+| **PostgreSQL 15** | 数据库，独立容器 |
+| **App（Go + Vue.js + UniApp）** | 主应用，从 ghcr.io 拉取预构建镜像 |
+
+## 版本更新日志
+
+| 版本 | 说明 |
+|------|------|
+| v1.0.0 | 初始版本 |
+| v1.0.1 | 修复 GitHub Actions 构建问题 |

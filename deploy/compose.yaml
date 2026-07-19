@@ -1,3 +1,5 @@
+# dz-ai-creator 生产部署配置
+# 使用 GHCR 预构建镜像，无需本地编译
 services:
   postgres:
     image: postgres:15-alpine
@@ -14,7 +16,6 @@ services:
       retries: 20
 
   app:
-    # 生产推荐：使用 GHCR 预构建镜像，避免本地编译
     image: ghcr.io/martinfengdz/dz-ai-creator:latest
     depends_on:
       postgres: {condition: service_healthy}
