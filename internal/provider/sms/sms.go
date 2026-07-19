@@ -17,6 +17,17 @@ import (
 type SMSSender interface {
 	SendVerificationCode(ctx context.Context, phone, purpose, code string) error
 }
+// Config contains only the fields NewAliyunSMSSender needs.
+type Config struct {
+	SMSProvider                    string
+	AliyunSMSAccessKeyID           string
+	AliyunSMSAccessKeySecret       string
+	AliyunSMSSignName              string
+	AliyunSMSRegisterTemplateCode  string
+	AliyunSMSResetTemplateCode     string
+	AliyunSMSEndpoint              string
+}
+
 
 type AliyunSMSSender struct {
 	cfg Config

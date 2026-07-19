@@ -1286,6 +1286,16 @@ func (p *OpenAIProvider) GenerateMusic(ctx context.Context, input MusicGeneratio
 	return apiResp, nil
 }
 
+// Config contains only the fields NewOpenAIProvider needs from the app Config.
+type Config struct {
+	OpenAIAPIKey         string
+	OpenAIBaseURL        string
+	ArkAPIKey            string
+	ZZAPIKey             string
+	GenerationSpoolPath  string
+	GenerationSpoolMaxBytes int64
+}
+
 func NewOpenAIProvider(cfg Config) *OpenAIProvider {
 	baseURL := strings.TrimRight(cfg.OpenAIBaseURL, "/")
 	if baseURL == "" {

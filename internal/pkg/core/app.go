@@ -22,15 +22,16 @@ import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"dz-ai-creator/internal/app/ecommerce"
-)
+	prov "dz-ai-creator/internal/provider"
+	sms "dz-ai-creator/internal/provider/sms"
 
 type App struct {
 	cfg                    Config
 	db                     *gorm.DB
-	provider               ImageProvider
-	videoProvider          VideoProvider
-	musicProvider          MusicProvider
-	smsSender              SMSSender
+	provider               prov.ImageProvider
+	videoProvider          prov.VideoProvider
+	musicProvider          prov.MusicProvider
+	smsSender              sms.SMSSender
 	router                 *gin.Engine
 	rateLimiter            *RateLimiter
 	concurrencyLimiter     *ConcurrencyLimiter
@@ -297,7 +298,7 @@ func New(cfg Config) (*App, error) {
 	if err := validateCommercePrivateStorageConfig(cfg); err != nil {
 		return nil, err
 	}
-	return newWithDependencies(cfg, db, NewOpenAIProvider(cfg), secretStore)
+	return newWithDependencies(cfg, db, prov.NewOpenAIProvider(prov.Config{OpenAIAPIKey: cfg.OpenAIAPIKey, OpenAIBaseURL: cfg.OpenAIBaseURL, ArkAPIKey: cfg.ArkAPIKey, ZZAPIKey: cfg.ZZAPIKey, GenerationSpoolPath: cfg.GenerationSpoolPath, GenerationSpoolMaxBytes: cfg.GenerationSpoolMaxBytes}), secretStore)
 }
 
 func postgresDialector(dsn string) gorm.Dialector {
@@ -359,11 +360,11 @@ func sqliteDatabasePath(databaseURL string) (string, bool) {
 	return "", false
 }
 
-func NewWithDependencies(cfg Config, db *gorm.DB, provider ImageProvider) (*App, error) {
+func NewWithDependencies(cfg Config, db *gorm.DB, provider prov.ImageProvider) (*App, error) {
 	return newWithDependencies(cfg, db, provider, nil)
 }
 
-func newWithDependencies(cfg Config, db *gorm.DB, provider ImageProvider, secretStore *SecretStore) (*App, error) {
+func newWithDependencies(cfg Config, db *gorm.DB, provider prov.ImageProvider, secretStore *SecretStore) (*App, error) {
 	if len(cfg.AllowedImageModels) == 0 {
 		cfg.AllowedImageModels = []string{cfg.DefaultImageModel}
 	}
@@ -396,13 +397,13 @@ func newWithDependencies(cfg Config, db *gorm.DB, provider ImageProvider, secret
 		return nil, err
 	}
 
-	videoProvider, _ := provider.(VideoProvider)
+	videoProvider, _ := provider.(prov.VideoProvider)
 	if videoProvider == nil {
-		videoProvider = NewOpenAIProvider(cfg)
+		videoProvider = prov.NewOpenAIProvider(prov.Config{OpenAIAPIKey: cfg.OpenAIAPIKey, OpenAIBaseURL: cfg.OpenAIBaseURL, ArkAPIKey: cfg.ArkAPIKey, ZZAPIKey: cfg.ZZAPIKey, GenerationSpoolPath: cfg.GenerationSpoolPath, GenerationSpoolMaxBytes: cfg.GenerationSpoolMaxBytes})
 	}
-	musicProvider, _ := provider.(MusicProvider)
+	musicProvider, _ := provider.(prov.MusicProvider)
 	if musicProvider == nil {
-		musicProvider = NewOpenAIProvider(cfg)
+		musicProvider = prov.NewOpenAIProvider(prov.Config{OpenAIAPIKey: cfg.OpenAIAPIKey, OpenAIBaseURL: cfg.OpenAIBaseURL, ArkAPIKey: cfg.ArkAPIKey, ZZAPIKey: cfg.ZZAPIKey, GenerationSpoolPath: cfg.GenerationSpoolPath, GenerationSpoolMaxBytes: cfg.GenerationSpoolMaxBytes})
 	}
 
 	commerceRepository := ecommerce.NewRepository(db)
@@ -428,7 +429,7 @@ func newWithDependencies(cfg Config, db *gorm.DB, provider ImageProvider, secret
 		provider:               provider,
 		videoProvider:          videoProvider,
 		musicProvider:          musicProvider,
-		smsSender:              NewAliyunSMSSender(cfg),
+		smsSender:              sms.NewAliyunSMSSender(sms.Config{SMSProvider: cfg.SMSProvider, AliyunSMSAccessKeyID: cfg.AliyunSMSAccessKeyID, AliyunSMSAccessKeySecret: cfg.AliyunSMSAccessKeySecret, AliyunSMSSignName: cfg.AliyunSMSSignName, AliyunSMSRegisterTemplateCode: cfg.AliyunSMSRegisterTemplateCode, AliyunSMSResetTemplateCode: cfg.AliyunSMSResetTemplateCode, AliyunSMSEndpoint: cfg.AliyunSMSEndpoint}),
 		rateLimiter:            NewRateLimiter(),
 		concurrencyLimiter:     NewConcurrencyLimiter(),
 		imageGenLimiter:        NewUserConcurrencyLimiter(maxConcurrentImageGenerationsPerUser),

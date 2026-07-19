@@ -65,3 +65,4 @@ logs/
 coverage/
 *.out
 .DS_Store
+internal/pkg/core/build/
