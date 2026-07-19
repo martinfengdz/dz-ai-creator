@@ -56,3 +56,5 @@ docker compose -f deploy/compose.yaml up -d
 |------|------|
 | v1.0.0 | 初始版本 |
 | v1.0.1 | 修复 GitHub Actions 构建问题 |
+| v1.0.2 | 合并*App方法到core包，修复provider/sms局部Config类型 |
+| v1.0.3 | P0-P2安全审计修复：SQL注入防护、密钥加密、CSRF加固等7项安全修复 |
