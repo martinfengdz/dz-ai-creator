@@ -26,5 +26,5 @@
     "vite": "^6.3.5",
     "vitest": "^3.1.4"
   },
-  "description": "帝赞AI内容创作平台"
+  "description": "dzai-creator"
 }
