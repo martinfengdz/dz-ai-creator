@@ -14,7 +14,7 @@ RUN go mod download
 COPY . .
 COPY --from=web-build /src/web/dist ./web/dist
 RUN sh scripts/merge-core.sh /src /src/internal/pkg/core/build && \
-    mv internal/pkg/core/build/*.go internal/pkg/core/ && \
+    mv internal/pkg/core/build/* internal/pkg/core/ && \
     rm -rf internal/pkg/core/build
 RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/dz-ai-creator ./cmd/server && \
     CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/dz-ai-creator-admin ./cmd/admin && \
