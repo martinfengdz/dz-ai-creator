@@ -23,7 +23,7 @@ import {
   X,
   XCircle,
 } from "lucide-vue-next";
-import showcase from "../../image/dizan-ai-creator/commerce-showcase.png";
+import showcase from "../../image/dz-ai-creator/commerce-showcase.png";
 import { displayLabel } from "./commerceDisplayLabels.js";
 import { commerceUserMessage } from "./commerceUserMessages.js";
 
