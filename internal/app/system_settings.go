@@ -156,7 +156,7 @@ type adminSecuritySettingsPatch struct {
 func defaultAdminSystemSettings(cfg Config) adminSystemSettings {
 	return adminSystemSettings{
 		Platform: adminPlatformSettings{
-			Name:           "白霖共享",
+			Name:           "DZAI内容创作平台",
 			ShortName:      "IA",
 			Timezone:       "Asia/Shanghai",
 			Language:       "zh-CN",

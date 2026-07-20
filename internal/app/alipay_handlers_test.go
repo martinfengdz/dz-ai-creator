@@ -282,7 +282,7 @@ func TestAlipayPayReturnsAutoSubmitForm(t *testing.T) {
 		orderNumber,
 		formatAlipayAmount(order.AmountCents),
 		"FAST_INSTANT_TRADE_PAY",
-		"白霖共享 " + order.PackageName,
+		"DZAI内容创作平台 " + order.PackageName,
 	} {
 		if !strings.Contains(unescapedForm, want) {
 			t.Fatalf("expected hidden biz_content to contain %q, got %s", want, payload.FormHTML)

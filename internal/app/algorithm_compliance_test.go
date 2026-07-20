@@ -91,12 +91,12 @@ func TestContentReportLifecycleAndAdminComplianceExport(t *testing.T) {
 	if disclosureResp.Code != http.StatusOK {
 		t.Fatalf("expected disclosure 200, got %d: %s", disclosureResp.Code, disclosureResp.Body.String())
 	}
-	if !bytes.Contains(disclosureResp.Body.Bytes(), []byte("白霖共享图片生成合成服务算法")) {
+	if !bytes.Contains(disclosureResp.Body.Bytes(), []byte("DZAI内容创作平台图片生成合成服务算法")) {
 		t.Fatalf("expected default disclosure, got %s", disclosureResp.Body.String())
 	}
 
 	updateDisclosureResp := performJSONRequest(t, testApp, http.MethodPatch, "/api/admin/algorithm-disclosure", map[string]any{
-		"algorithm_name":       "白霖共享图片生成合成服务算法",
+		"algorithm_name":       "DZAI内容创作平台图片生成合成服务算法",
 		"algorithm_type":       "生成合成类",
 		"service_description":  "面向用户提供文生图、参考图合成和局部编辑能力",
 		"provider_description": "平台调用第三方生成模型，不训练基础模型",

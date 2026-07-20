@@ -373,7 +373,7 @@ func (a *App) buildAlipayPagePayForm(order FinanceOrder) (string, error) {
 		"out_trade_no": order.OrderNumber,
 		"product_code": "FAST_INSTANT_TRADE_PAY",
 		"total_amount": formatAlipayAmount(order.AmountCents),
-		"subject":      fmt.Sprintf("白霖共享 %s %d点", order.PackageName, order.PackageCredits),
+		"subject":      fmt.Sprintf("DZAI内容创作平台 %s %d点", order.PackageName, order.PackageCredits),
 		"body":         fmt.Sprintf("%s，%d 点", order.PackageName, order.PackageCredits),
 	}
 	bizJSON, err := json.Marshal(bizContent)
