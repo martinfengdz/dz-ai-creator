@@ -293,7 +293,7 @@ for (const [outputName, output] of [
 const workspaceWXML = read(resolve(buildRoot, 'pages/workspace/image-to-image/index.wxml'))
 const workspaceJS = read(resolve(buildRoot, 'pages/workspace/image-to-image/index.js'))
 const workspaceWXSS = read(resolve(buildRoot, 'pages/workspace/image-to-image/index.wxss'))
-for (const marker of ['白霖共享', '工作模式', '文生图', '图生图', '情侣相册', '上传图片', '提示词', '反向提示词', '风格偏好', '图片尺寸', '画质', '创意程度']) {
+for (const marker of ['DZAI内容创作平台', '工作模式', '文生图', '图生图', '情侣相册', '上传图片', '提示词', '反向提示词', '风格偏好', '图片尺寸', '画质', '创意程度']) {
   assert(workspaceWXML.includes(marker), `mp-weixin workspace WXML must contain text-to-image UI marker: ${marker}`)
 }
 assert(workspaceWXML.includes('上传双人照片，生成可分享的旅行相册'), 'mp-weixin workspace WXML must contain the couple album mode card description')
@@ -418,7 +418,7 @@ for (const marker of ['batch-count-badge', 'work-preview-swiper', '下载当前'
 for (const marker of ['batch_id', 'batch_items', 'is_batch', 'fallback-', 'saveImageToPhotosAlbum']) {
   assert(worksJS.includes(marker), `mp-weixin works JS must contain batch grouping and download behavior: ${marker}`)
 }
-for (const marker of ['enableMiniProgramShare', '/api/public/works/', 'routes.workShare', '白霖共享 AI 作品库']) {
+for (const marker of ['enableMiniProgramShare', '/api/public/works/', 'routes.workShare', 'DZAI内容创作平台 AI 作品库']) {
   assert(worksJS.includes(marker), `mp-weixin works JS must contain native work share behavior: ${marker}`)
 }
 assert(worksWXML.includes('open-type="share"'), 'mp-weixin works WXML must use native share buttons for work cards')
@@ -426,7 +426,7 @@ assert(worksWXML.includes('data-share-kind="work"'), 'mp-weixin works WXML must 
 assert(worksWXML.includes('data-share-kind="album"'), 'mp-weixin works WXML must mark native album share targets')
 assert(worksWXML.includes('data-share-token='), 'mp-weixin works WXML must expose native album share tokens')
 assert(worksWXML.includes('native-share-panel'), 'mp-weixin works WXML must include the post-publish native share panel')
-for (const marker of ['share_token', 'routes.coupleAlbumShare', '白霖共享情侣相册']) {
+for (const marker of ['share_token', 'routes.coupleAlbumShare', 'DZAI内容创作平台情侣相册']) {
   assert(worksJS.includes(marker), `mp-weixin works JS must contain native album share behavior: ${marker}`)
 }
 for (const marker of ['cover-placeholder', 'placeholder-orbit']) {
@@ -467,11 +467,11 @@ assert(
   'mp-weixin utils/share.js compatibility shim must forward to utils/routes.js'
 )
 assert(routesHelperJS.includes('/pages/home/index'), 'mp-weixin default share helper JS must target the home page')
-assert(workspaceJS.includes('白霖共享 AI 生图工作台'), 'mp-weixin workspace share JS must keep the workspace share title')
+assert(workspaceJS.includes('DZAI内容创作平台 AI 生图工作台'), 'mp-weixin workspace share JS must keep the workspace share title')
 assert(workspaceJS.includes('routes.imageToImage'), 'mp-weixin workspace share JS must target the workspace page')
-assert(pricingJS.includes('白霖共享 AI 图片套餐'), 'mp-weixin pricing share JS must keep the pricing share title')
+assert(pricingJS.includes('DZAI内容创作平台 AI 图片套餐'), 'mp-weixin pricing share JS must keep the pricing share title')
 assert(pricingJS.includes('routes.pricing'), 'mp-weixin pricing share JS must target the pricing page')
-assert(supportJS.includes('白霖共享客服支持'), 'mp-weixin support share JS must keep the support share title')
+assert(supportJS.includes('DZAI内容创作平台客服支持'), 'mp-weixin support share JS must keep the support share title')
 assert(supportJS.includes('routes.support'), 'mp-weixin support share JS must target the support page')
 for (const marker of ['routes.coupleAlbumShare', 'token=', 'share_token', 'query', 'imageUrl']) {
   assert(coupleAlbumShareJS.includes(marker), `mp-weixin couple album public share JS must keep token share marker: ${marker}`)

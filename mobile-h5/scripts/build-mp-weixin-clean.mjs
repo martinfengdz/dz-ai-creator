@@ -134,7 +134,7 @@ function writeDistProjectConfigs() {
       include: []
     },
     appid: parentProjectConfig.appid,
-    projectname: parentProjectConfig.projectname || '白霖共享',
+    projectname: parentProjectConfig.projectname || 'DZAI内容创作平台',
     editorSetting: parentProjectConfig.editorSetting || {}
   }
 

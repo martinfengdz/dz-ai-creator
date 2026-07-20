@@ -158,7 +158,7 @@ assert(main.includes('IMAGE_AGENT_MP_BUILD'), 'mp-weixin app startup must log a 
 assert(main.includes('no-urlsearchparams-v2'), 'mp-weixin build marker must identify the URLSearchParams-free build')
 
 const homePage = read('src/pages/home/index.vue')
-assert(homePage.includes('白霖共享'), 'home page must render the 白霖共享 brand')
+assert(homePage.includes('DZAI内容创作平台'), 'home page must render the DZAI内容创作平台 brand')
 assert(homePage.includes('创作者 AI 图片平台'), 'home page must render the creator AI image platform subtitle')
 assert(homePage.includes('CREATOR PORTAL'), 'home page must render the creator portal eyebrow')
 assert(homePage.includes('一站式 AI 生图工作台'), 'home page must render the replica hero title')
@@ -895,7 +895,7 @@ const coupleAlbumCreatePage = read(coupleAlbumCreatePath)
 const coupleAlbumCreateStyle = coupleAlbumCreatePage.match(/<style[\s\S]*<\/style>/)?.[0] || ''
 for (const marker of [
   '520 情侣旅行相册',
-  '白霖共享',
+  'DZAI内容创作平台',
   '创作者 AI 图片平台',
   '工作模式',
   '情侣相册',
@@ -1177,7 +1177,7 @@ for (const marker of [
   'onShareTimeline',
   'showShareMenu',
   "menus: ['shareAppMessage', 'shareTimeline']",
-  "title: '白霖共享AI图片生成'",
+  "title: 'DZAI内容创作平台AI图片生成'",
   "path: '/pages/home/index'",
   "staticAsset('home-replica/mountain-hero.png')"
 ]) {
@@ -1201,11 +1201,11 @@ for (const [pagePath, source] of shareEnabledPageContracts) {
   )
 }
 assert(homePage.includes('enableMiniProgramShare()'), 'home page must use the default share card')
-assert(workspace.includes("title: '白霖共享 AI 生图工作台'"), 'workspace share title must describe the AI image workspace')
+assert(workspace.includes("title: 'DZAI内容创作平台 AI 生图工作台'"), 'workspace share title must describe the AI image workspace')
 assert(workspace.includes('path: routes.imageToImage'), 'workspace share path must target the workspace page')
-assert(pricingPage.includes("title: '白霖共享 AI 图片套餐'"), 'pricing share title must describe AI image packages')
+assert(pricingPage.includes("title: 'DZAI内容创作平台 AI 图片套餐'"), 'pricing share title must describe AI image packages')
 assert(pricingPage.includes('path: routes.pricing'), 'pricing share path must target the pricing page')
-assert(supportPage.includes("title: '白霖共享客服支持'"), 'support share title must describe help and customer service')
+assert(supportPage.includes("title: 'DZAI内容创作平台客服支持'"), 'support share title must describe help and customer service')
 assert(supportPage.includes('path: routes.support'), 'support share path must target the support page')
 for (const [pagePath, source] of shareEnabledPageContracts) {
   assert(!source.includes('utils/share.js'), `${pagePath} must import mini-program sharing from routes.js`)
