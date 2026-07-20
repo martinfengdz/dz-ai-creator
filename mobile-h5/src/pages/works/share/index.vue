@@ -20,9 +20,9 @@ const sharePath = computed(() => {
   return `${workShareRoute}${query ? `?${query}` : ''}`
 })
 const shareTitle = computed(() => {
-  if (works.value.length > 1) return `白霖共享 AI 作品 · 共 ${works.value.length} 张`
+  if (works.value.length > 1) return `DZAI内容创作平台 AI 作品 · 共 ${works.value.length} 张`
   const text = `${works.value[0]?.title || works.value[0]?.prompt || ''}`.trim()
-  if (!text) return '白霖共享 AI 作品'
+  if (!text) return 'DZAI内容创作平台 AI 作品'
   return text.length > 24 ? `${text.slice(0, 24)}...` : text
 })
 const coverShareImage = computed(() => normalizeImageSource(works.value[0]?.preview_url))

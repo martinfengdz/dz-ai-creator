@@ -41,7 +41,7 @@ const isGenerating = computed(() =>
 )
 const isChildhoodDreamAlbum = computed(() => album.value?.story_template === 'childhood_career_dream')
 const albumProductName = computed(() => isChildhoodDreamAlbum.value ? '童年梦想相册' : '情侣相册')
-const albumBrandName = computed(() => isChildhoodDreamAlbum.value ? '白霖共享童年梦想相册' : '白霖共享情侣相册')
+const albumBrandName = computed(() => isChildhoodDreamAlbum.value ? 'DZAI内容创作平台童年梦想相册' : 'DZAI内容创作平台情侣相册')
 const albumMetaLabel = computed(() => isChildhoodDreamAlbum.value ? '六一职业梦想' : album.value?.location)
 const shareTitle = computed(() => {
   const title = `${album.value?.title || ''}`.trim()

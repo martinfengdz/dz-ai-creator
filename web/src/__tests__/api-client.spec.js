@@ -1066,7 +1066,7 @@ describe('api client', () => {
     vi.stubGlobal('fetch', fetchMock)
 
     const payload = {
-      platform: { name: '白霖共享' },
+      platform: { name: 'DZAI内容创作平台' },
       generation: { upload_limit: 6 }
     }
     await api.getSystemSettings()

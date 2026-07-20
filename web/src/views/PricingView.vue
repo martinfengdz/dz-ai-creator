@@ -407,7 +407,7 @@ onBeforeUnmount(() => {
   <section class="pricing-page pricing-agent-page">
     <header class="pricing-hero">
       <span class="pricing-hero-pill">✦ AI Image + Video</span>
-      <h1>白霖共享 AI 价目表</h1>
+      <h1>DZAI内容创作平台 AI 价目表</h1>
       <p>点数可用于图片生成、视频生成、作品管理等创作能力，适配日常内容制作与商业创意工作流</p>
       <div class="pricing-hero-notes" aria-label="套餐说明">
         <span>✓ 支付宝自动到账</span>

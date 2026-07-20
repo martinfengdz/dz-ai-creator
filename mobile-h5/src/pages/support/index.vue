@@ -22,7 +22,7 @@ function staticIcon(name) {
 const icon = staticIcon
 
 enableMiniProgramShare({
-  title: '白霖共享客服支持',
+  title: 'DZAI内容创作平台客服支持',
   path: routes.support
 })
 

@@ -344,7 +344,7 @@ function drawStats(ctx, stats) {
 function drawPoster(ctx, payload) {
   const { album, drawablePages, posterHeight, statusText } = payload
   const isChildhoodDreamAlbum = album?.story_template === 'childhood_career_dream'
-  const albumBrandName = isChildhoodDreamAlbum ? '白霖共享童年梦想相册' : '白霖共享情侣相册'
+  const albumBrandName = isChildhoodDreamAlbum ? 'DZAI内容创作平台童年梦想相册' : 'DZAI内容创作平台情侣相册'
   const albumFallbackTitle = isChildhoodDreamAlbum ? '童年梦想相册' : '情侣相册'
   const albumMeta = isChildhoodDreamAlbum ? '六一职业梦想' : album?.location || '旅行相册'
   const albumPosterCopy = isChildhoodDreamAlbum ? '把童年梦想存成一张长图' : '把我们的故事存成一张长图'
@@ -418,7 +418,7 @@ function drawPoster(ctx, payload) {
   setText(ctx, '#9f1239', 28, 'center')
   ctx.fillText('保存这张长图，继续分享我们的旅行故事', albumPosterCanvasWidth / 2, footerY)
   setText(ctx, '#667085', 22, 'center')
-  ctx.fillText('Powered by 白霖共享 AI 图片生成', albumPosterCanvasWidth / 2, footerY + 42)
+  ctx.fillText('Powered by DZAI内容创作平台 AI 图片生成', albumPosterCanvasWidth / 2, footerY + 42)
 }
 
 function drawCanvas(ctx) {

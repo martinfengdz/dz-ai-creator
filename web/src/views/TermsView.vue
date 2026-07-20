@@ -1,7 +1,7 @@
 <template>
   <main class="legal-page">
     <section class="legal-hero">
-      <p>白霖共享</p>
+      <p>DZAI内容创作平台</p>
       <h1>用户协议</h1>
       <span>版本：2026-06-04</span>
     </section>

@@ -325,7 +325,7 @@ onBeforeUnmount(() => {
       <div class="admin-brand">
         <div class="admin-brand-mark">IA</div>
         <div>
-          <p class="brand-kicker">白霖共享</p>
+          <p class="brand-kicker">DZAI内容创作平台</p>
           <h2>运营后台</h2>
         </div>
       </div>

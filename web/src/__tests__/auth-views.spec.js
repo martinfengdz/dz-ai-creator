@@ -745,7 +745,7 @@ describe('auth views', () => {
     const wrapper = mount(AdminLoginView)
     await flushPromises()
 
-    expect(wrapper.text()).toContain('白霖共享 Admin')
+    expect(wrapper.text()).toContain('DZAI内容创作平台 Admin')
     expect(wrapper.text()).toContain('后台控制中心')
     expect(wrapper.text()).toContain('数据可视化')
     expect(wrapper.text()).toContain('权限安全')

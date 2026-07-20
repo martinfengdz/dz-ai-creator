@@ -110,10 +110,10 @@ onMounted(async () => {
       <aside
         class="agent-home-visual"
         :style="{ '--agent-ribbon-image': `url(${ribbonImage})` }"
-        aria-label="白霖共享 平台演示"
+        aria-label="DZAI内容创作平台 平台演示"
       >
         <div class="agent-home-visual-copy">
-          <span class="agent-home-visual-badge">白霖共享</span>
+          <span class="agent-home-visual-badge">DZAI内容创作平台</span>
           <h2>
             <span>生成、入库、</span><span>复用、交付</span>
             <span class="agent-home-spark" aria-hidden="true">✦</span>

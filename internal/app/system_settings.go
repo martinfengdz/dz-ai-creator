@@ -389,7 +389,11 @@ func validateAdminSystemSettings(values adminSystemSettings) error {
 	if strings.TrimSpace(values.Platform.ShortName) == "" {
 		return errors.New("platform short name is required")
 	}
-	if _, err := time.LoadLocation(values.Platform.Timezone); err != nil {
+	timezone := strings.TrimSpace(values.Platform.Timezone)
+	if timezone == "" {
+		timezone = "Asia/Shanghai"
+		values.Platform.Timezone = "Asia/Shanghai"
+	} else if _, err := time.LoadLocation(timezone); err != nil {
 		return errors.New("timezone is invalid")
 	}
 	if strings.TrimSpace(values.Platform.Language) == "" || strings.TrimSpace(values.Platform.Currency) == "" {
