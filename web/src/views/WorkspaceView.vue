@@ -32,11 +32,11 @@ import WorkspaceComposerPanel from '../components/workspace/WorkspaceComposerPan
 import WorkspaceDiscoverySurface from '../components/workspace/WorkspaceDiscoverySurface.vue'
 import AgentWorkspacePanel from '../components/workspace/AgentWorkspacePanel.vue'
 import { usePointerZoom } from '../composables/usePointerZoom.js'
-import productImage from '../image/dizan-ai-creator/commerce-showcase.png'
-import portraitImage from '../image/dizan-ai-creator/portrait.png'
-import interiorImage from '../image/dizan-ai-creator/interior.png'
-import landscapeImage from '../image/dizan-ai-creator/landscape.png'
-import cityImage from '../image/dizan-ai-creator/city.png'
+import productImage from '../image/dz-ai-creator/commerce-showcase.png'
+import portraitImage from '../image/dz-ai-creator/portrait.png'
+import interiorImage from '../image/dz-ai-creator/interior.png'
+import landscapeImage from '../image/dz-ai-creator/landscape.png'
+import cityImage from '../image/dz-ai-creator/city.png'
 
 // 状态管理
 const router = useRouter()
