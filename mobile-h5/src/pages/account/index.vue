@@ -8,7 +8,7 @@ import AppTabbar from '../../components/AppTabbar.vue'
 import { navigateTo, redirectToAuth, requireAuth, routes } from '../../utils/routes.js'
 
 const staticAssetBaseURL = `${import.meta.env.VITE_STATIC_ASSET_BASE_URL || ''}`.replace(/\/+$/, '')
-const sourceCodeURL = `${import.meta.env.VITE_SOURCE_CODE_URL || 'https://github.com/your-org/dz-ai-creator'}`
+const sourceCodeURL = `${import.meta.env.VITE_SOURCE_CODE_URL || 'https://github.com/martinfengdz/dz-ai-creator'}`
 
 function staticAsset(path) {
   const normalizedPath = `${path || ''}`.trim().replace(/^\/+/, '').replace(/^static\/+/i, '')
