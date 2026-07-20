@@ -1,5 +1,5 @@
 {
-  "name": "dizan-ai-creator",
+  "name": "dzai-creator",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -26,5 +26,5 @@
     "vite": "^6.3.5",
     "vitest": "^3.1.4"
   },
-  "description": "帝赞AI内容创作平台"
+  "description": "DZAI内容创作平台"
 }
