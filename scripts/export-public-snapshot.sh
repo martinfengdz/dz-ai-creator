@@ -29,7 +29,7 @@ tar -xf "$archive" -C "$destination"
   cd "$destination"
   git init -b main
   git add -A
-  git commit -s -m "chore: 导入 帝赞AI 开源快照"
+  git commit -s -m "chore: 导入 DZAI 开源快照"
 )
 
 echo "clean public snapshot created at $destination"
