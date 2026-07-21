@@ -83,7 +83,7 @@ func TestAdminSystemSettingsGetPatchExportAndAudit(t *testing.T) {
 	if err := json.Unmarshal(getResp.Body.Bytes(), &initial); err != nil {
 		t.Fatalf("decode initial system settings: %v", err)
 	}
-	if initial.Settings.Platform.Name != "白霖共享" {
+	if initial.Settings.Platform.Name != "DZAI内容创作平台" {
 		t.Fatalf("expected default platform name, got %+v", initial.Settings.Platform)
 	}
 	if initial.Settings.Platform.PlatformDomain != testApp.cfg.AppBaseURL {

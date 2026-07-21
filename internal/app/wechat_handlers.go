@@ -1881,7 +1881,7 @@ func (c httpWechatPayClient) CreateJSAPIOrder(order FinanceOrder, openid string)
 	body := map[string]any{
 		"appid":        c.app.cfg.WechatPayAppID,
 		"mchid":        c.app.cfg.WechatPayMchID,
-		"description":  fmt.Sprintf("白霖共享 %s %d点", order.PackageName, order.PackageCredits),
+		"description":  fmt.Sprintf("DZAI内容创作平台 %s %d点", order.PackageName, order.PackageCredits),
 		"out_trade_no": order.OrderNumber,
 		"notify_url":   c.app.effectiveWechatNotifyURL(),
 		"amount":       map[string]any{"total": order.AmountCents, "currency": "CNY"},

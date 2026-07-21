@@ -342,7 +342,7 @@ func (a *App) ensureDefaultAlgorithmDisclosure() (AlgorithmDisclosure, error) {
 		return AlgorithmDisclosure{}, err
 	}
 	disclosure = AlgorithmDisclosure{
-		AlgorithmName:       "白霖共享图片生成合成服务算法",
+		AlgorithmName:       "DZAI内容创作平台图片生成合成服务算法",
 		AlgorithmType:       "生成合成类",
 		ServiceDescription:  "面向用户提供文生图、参考图合成、局部编辑、老照片修复和相册类图片生成合成服务。",
 		ProviderDescription: "平台调用第三方生成模型，不自行训练基础生成模型；平台负责输入输出治理、标识、日志和用户权益保护。",
