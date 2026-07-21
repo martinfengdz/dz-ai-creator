@@ -2,12 +2,12 @@
 import { onMounted, ref } from 'vue'
 
 import { api } from '../api/client.js'
-import cityImage from '../image/dizan-ai-creator/city.png'
-import interiorImage from '../image/dizan-ai-creator/interior.png'
-import landscapeImage from '../image/dizan-ai-creator/landscape.png'
-import portraitImage from '../image/dizan-ai-creator/portrait.png'
-import productImage from '../image/dizan-ai-creator/commerce-showcase.png'
-import ribbonImage from '../image/dizan-ai-creator/ribbon.png'
+import cityImage from '../image/dz-ai-creator/city.png'
+import interiorImage from '../image/dz-ai-creator/interior.png'
+import landscapeImage from '../image/dz-ai-creator/landscape.png'
+import portraitImage from '../image/dz-ai-creator/portrait.png'
+import productImage from '../image/dz-ai-creator/commerce-showcase.png'
+import ribbonImage from '../image/dz-ai-creator/ribbon.png'
 
 const workflowChips = [
   { icon: '〽', label: '持续生成工作台' },
