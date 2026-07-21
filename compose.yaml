@@ -1,6 +1,8 @@
 services:
   postgres:
     image: postgres:15-alpine
+    container_name: dz-ai-creator-db
+    restart: unless-stopped
     environment:
       POSTGRES_DB: dz_ai_creator
       POSTGRES_USER: dz_ai_creator
@@ -18,16 +20,19 @@ services:
       context: .
       args:
         VITE_SOURCE_CODE_URL: ${VITE_SOURCE_CODE_URL:-https://github.com/martinfengdz/dz-ai-creator}
+    container_name: dz-ai-creator-app
+    restart: unless-stopped
     depends_on:
       postgres: {condition: service_healthy}
     environment:
-      APP_VERSION: ${APP_VERSION:-v2.1.0}
+      APP_VERSION: ${APP_VERSION:-v2.1.1}
       APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8888}
       LISTEN_ADDR: :8888
       DATABASE_URL_FILE: /run/secrets/database_url
       APP_SECRETS_MASTER_KEY_FILE: /run/secrets/app_secrets_master_key
       STARTUP_DATABASE_MIGRATIONS: ${STARTUP_DATABASE_MIGRATIONS:-bootstrap}
       STORAGE_TYPE: local
+      GENERATION_SPOOL_PATH: /app/data/spool/generation
     secrets: [database_url, app_secrets_master_key]
     volumes: [app_data:/app/data]
     ports: ["8888:8888"]

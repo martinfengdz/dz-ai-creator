@@ -124,7 +124,7 @@ func LoadConfigFromEnv() (Config, error) {
 		GenerationQueueCapacity:              getenvInt("GENERATION_QUEUE_CAPACITY", 500),
 		GenerationUserPendingLimit:           getenvInt("GENERATION_USER_PENDING_LIMIT", 32),
 		GenerationQueueTimeoutSeconds:        getenvInt("GENERATION_QUEUE_TIMEOUT_SECONDS", 1800),
-		GenerationSpoolPath:                  getenv("GENERATION_SPOOL_PATH", "/opt/dz-ai-creator/shared/generation-spool"),
+		GenerationSpoolPath:                  getenv("GENERATION_SPOOL_PATH", "/app/data/spool/generation"),
 		GenerationSpoolMaxBytes:              getenvInt64("GENERATION_SPOOL_MAX_BYTES", 2*1024*1024*1024),
 
 		SMSProvider:       getenv("SMS_PROVIDER", "aliyun"),

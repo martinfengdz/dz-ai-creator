@@ -41,8 +41,8 @@ func buildCSRFCookie(value string, hours int) *http.Cookie {
 		Name:     csrfCookieName,
 		Value:    value,
 		Path:     "/",
-		HttpOnly: false,
-		SameSite: http.SameSiteLaxMode,
+		HttpOnly: true,
+		SameSite: http.SameSiteStrictMode,
 		MaxAge:   hours * int(time.Hour/time.Second),
 	}
 }

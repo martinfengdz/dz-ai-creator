@@ -490,7 +490,7 @@ func (a *App) handlePatchSystemSettings(c *gin.Context) {
 	values := adminSystemSettingsFromModel(settings)
 	applyAdminSystemSettingsPatch(&values, req)
 	if err := validateAdminSystemSettings(values); err != nil {
-		writeError(c, http.StatusBadRequest, "invalid_system_settings", "系统设置无效")
+		writeError(c, http.StatusBadRequest, "invalid_system_settings", err.Error())
 		return
 	}
 	applyAdminSystemSettingsToModel(&settings, values)

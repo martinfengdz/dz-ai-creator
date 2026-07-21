@@ -10,6 +10,8 @@ RUN npm run build
 FROM golang:1.26.5-alpine AS go-build
 WORKDIR /src
 COPY go.mod go.sum ./
+ARG GOPROXY
+ENV GOPROXY=${GOPROXY:-https://goproxy.cn,direct}
 RUN go mod download
 COPY . .
 COPY --from=web-build /src/web/dist ./web/dist
@@ -24,7 +26,7 @@ COPY --from=go-build /out/dz-ai-creator /usr/local/bin/dz-ai-creator
 COPY --from=go-build /out/dz-ai-creator-admin /usr/local/bin/dz-ai-creator-admin
 COPY --from=go-build /out/dz-ai-creator-secrets /usr/local/bin/dz-ai-creator-secrets
 COPY --from=web-build /src/web/dist ./web/dist
-RUN mkdir -p /app/data/assets && chown -R dzcreator:dzcreator /app
+RUN mkdir -p /app/data/assets /app/data/spool && chown -R dzcreator:dzcreator /app
 USER dzcreator
 EXPOSE 8888
 ENTRYPOINT ["dz-ai-creator"]
