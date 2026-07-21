@@ -21,6 +21,7 @@ services:
     depends_on:
       postgres: {condition: service_healthy}
     environment:
+      APP_VERSION: ${APP_VERSION:-v2.1.0}
       APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8888}
       LISTEN_ADDR: :8888
       DATABASE_URL_FILE: /run/secrets/database_url
