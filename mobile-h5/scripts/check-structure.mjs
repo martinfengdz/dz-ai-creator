@@ -263,7 +263,7 @@ if (workspacePage.includes('class="ratio-card"') || workspacePage.includes('clas
 
 const requiredWorkspaceDualModeSnippets = [
   'class="topbar"',
-  '白霖共享',
+  'DZAI内容创作平台',
   "label: '文生图'",
   "label: '图生图'",
   'function chooseReferences',
