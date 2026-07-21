@@ -169,9 +169,9 @@ watch(
     <template v-else>
       <header class="site-header">
       <div class="site-header-shell">
-        <RouterLink class="brand-mark" to="/" aria-label="白霖共享 首页">
+        <RouterLink class="brand-mark" to="/" aria-label="DZAI内容创作平台 首页">
           <span class="brand-star" aria-hidden="true"></span>
-          <strong>白霖共享</strong>
+          <strong>DZAI内容创作平台</strong>
           <span class="brand-divider" aria-hidden="true"></span>
           <span class="brand-tagline">创作者 AI 图片平台</span>
         </RouterLink>

@@ -344,7 +344,7 @@ onBeforeUnmount(() => {
         <div class="sidebar-brand-kicker">创作者 AI 图片平台</div>
         <h1 class="sidebar-title">
           <Sparkles :size="24" class="title-icon" />
-          白霖共享
+          DZAI内容创作平台
         </h1>
       </div>
 

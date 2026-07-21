@@ -1,5 +1,5 @@
 {
-  "name": "白霖共享",
+  "name": "DZAI内容创作平台",
   "appid": "__UNI__IMAGE_AGENT",
   "description": "创作者 AI 图片平台移动端",
   "versionName": "0.1.0",
@@ -10,7 +10,7 @@
       "mode": "history",
       "base": "/"
     },
-    "title": "白霖共享"
+    "title": "DZAI内容创作平台"
   },
   "mp-weixin": {
     "appid": "",

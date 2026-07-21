@@ -117,7 +117,7 @@ onMounted(() => {
         <div class="admin-login-brand">
           <div class="admin-brand-mark">IA</div>
           <div>
-            <p class="eyebrow">白霖共享 Admin</p>
+            <p class="eyebrow">DZAI内容创作平台 Admin</p>
             <strong>潜核绘影管理端</strong>
           </div>
         </div>

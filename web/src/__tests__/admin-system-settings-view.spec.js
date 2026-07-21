@@ -21,7 +21,7 @@ import AdminSystemSettingsView from '../views/AdminSystemSettingsView.vue'
 const settingsPayload = {
   settings: {
     platform: {
-      name: '白霖共享',
+      name: 'DZAI内容创作平台',
       short_name: 'IA',
       logo_url: 'https://cdn.example.com/logo.png',
       timezone: 'Asia/Shanghai',
@@ -64,7 +64,7 @@ const settingsPayload = {
   },
   defaults: {
     platform: {
-      name: '白霖共享',
+      name: 'DZAI内容创作平台',
       short_name: 'IA',
       logo_url: '',
       timezone: 'Asia/Shanghai',
@@ -182,7 +182,7 @@ describe('AdminSystemSettingsView', () => {
     expect(wrapper.text()).toContain('系统状态')
     expect(wrapper.text()).toContain('快捷操作')
     expect(wrapper.text()).toContain('导出配置')
-    expect(wrapper.text()).toContain('白霖共享')
+    expect(wrapper.text()).toContain('DZAI内容创作平台')
     expect(wrapper.text()).toContain('12')
     expect(wrapper.text()).toContain('今日生成')
     expect(wrapper.text()).toContain('2 / 50')
@@ -249,7 +249,7 @@ describe('AdminSystemSettingsView', () => {
     await wrapper.get('[data-testid="restore-system-defaults"]').trigger('click')
     await flushPromises()
 
-    expect(wrapper.get('[data-testid="platform-name"]').element.value).toBe('白霖共享')
+    expect(wrapper.get('[data-testid="platform-name"]').element.value).toBe('DZAI内容创作平台')
     expect(apiMocks.updateSystemSettings).not.toHaveBeenCalled()
 
     await wrapper.get('[data-testid="export-system-settings"]').trigger('click')

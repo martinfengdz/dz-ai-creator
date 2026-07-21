@@ -318,14 +318,14 @@ onUnload(() => {
         <button type="button" class="ghost-icon-button" @click="goHome">‹</button>
         <view class="brand-lockup">
           <text class="brand-mark">IA</text>
-          <text>白霖共享</text>
+          <text>DZAI内容创作平台</text>
         </view>
       </view>
 
       <view class="hero-stage">
         <image class="hero-image" :src="heroImage" mode="aspectFill" />
         <view class="hero-copy">
-          <text>白霖共享</text>
+          <text>DZAI内容创作平台</text>
           <text>让每一次灵感快速成片</text>
         </view>
       </view>

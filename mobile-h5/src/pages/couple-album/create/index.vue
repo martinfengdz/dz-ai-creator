@@ -485,7 +485,7 @@ async function submitAlbum() {
         <view class="brand">
           <image class="brand-icon" :src="icon('logo-star')" mode="aspectFit" />
           <view>
-            <text class="brand-name">白霖共享</text>
+            <text class="brand-name">DZAI内容创作平台</text>
             <text class="brand-subtitle">创作者 AI 图片平台</text>
           </view>
         </view>

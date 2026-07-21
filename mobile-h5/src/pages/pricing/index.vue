@@ -24,7 +24,7 @@ function staticIcon(name) {
 const icon = staticIcon
 
 enableMiniProgramShare({
-  title: '白霖共享 AI 图片套餐',
+  title: 'DZAI内容创作平台 AI 图片套餐',
   path: routes.pricing
 })
 
@@ -454,7 +454,7 @@ onMounted(loadPricing)
         <view class="brand">
           <image class="brand-icon" :src="icon('logo-star')" mode="aspectFit" />
           <view>
-            <text class="brand-name">白霖共享</text>
+            <text class="brand-name">DZAI内容创作平台</text>
             <text class="brand-subtitle">创作者 AI 图片平台</text>
           </view>
         </view>

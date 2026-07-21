@@ -69,7 +69,7 @@ describe('PricingView', () => {
     await wrapper.vm.$nextTick()
 
     expect(wrapper.text()).toContain('AI Image + Video')
-    expect(wrapper.text()).toContain('白霖共享 AI 价目表')
+    expect(wrapper.text()).toContain('DZAI内容创作平台 AI 价目表')
     expect(wrapper.text()).toContain('点数可用于图片生成、视频生成、作品管理等创作能力')
     expect(wrapper.text()).toContain('支付宝自动到账')
     expect(wrapper.text()).toContain('虚拟商品线上交付')

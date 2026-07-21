@@ -611,9 +611,9 @@ function findShareWorksByIDs(ids) {
 }
 
 function workShareTitle(work, count = 1) {
-  if (count > 1) return `白霖共享 AI 作品 · 共 ${count} 张`
+  if (count > 1) return `DZAI内容创作平台 AI 作品 · 共 ${count} 张`
   const text = `${work?.title || work?.prompt || work?.input_prompt || ''}`.trim()
-  if (!text) return '白霖共享 AI 作品'
+  if (!text) return 'DZAI内容创作平台 AI 作品'
   return text.length > 24 ? `${text.slice(0, 24)}...` : text
 }
 
@@ -649,7 +649,7 @@ function workSharePayload(event) {
     }
   }
   return {
-    title: '白霖共享 AI 作品库',
+    title: 'DZAI内容创作平台 AI 作品库',
     path: routes.works
   }
 }
@@ -671,7 +671,7 @@ function albumProductName(work) {
 }
 
 function albumBrandName(work) {
-  return isChildhoodDreamAlbum(work) ? '白霖共享童年梦想相册' : '白霖共享情侣相册'
+  return isChildhoodDreamAlbum(work) ? 'DZAI内容创作平台童年梦想相册' : 'DZAI内容创作平台情侣相册'
 }
 
 function albumShareTitle(work) {
@@ -1470,7 +1470,7 @@ function albumStatusText(status) {
 
 function sharePanelTitle() {
   if (isAlbumCard(sharePanelWork.value)) return albumShareTitle(sharePanelWork.value)
-  return sharePanelWork.value ? workShareTitle(sharePanelWork.value, workShareItems(sharePanelWork.value).length) : '白霖共享 AI 作品'
+  return sharePanelWork.value ? workShareTitle(sharePanelWork.value, workShareItems(sharePanelWork.value).length) : 'DZAI内容创作平台 AI 作品'
 }
 
 function sharePanelSubtitle() {
@@ -1560,7 +1560,7 @@ onBeforeUnmount(stopPendingPolling)
         <view class="brand">
           <image class="brand-icon" :src="icon('logo-star')" mode="aspectFit" />
           <view>
-            <text class="brand-name">白霖共享</text>
+            <text class="brand-name">DZAI内容创作平台</text>
             <text class="brand-subtitle">创作者 AI 图片平台</text>
           </view>
         </view>

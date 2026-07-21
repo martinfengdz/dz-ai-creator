@@ -2,7 +2,7 @@
   <main class="legal-page">
     <section class="legal-hero">
       <p>拟公示内容</p>
-      <h1>白霖共享图片生成合成服务算法</h1>
+      <h1>DZAI内容创作平台图片生成合成服务算法</h1>
       <span>算法类型：生成合成类</span>
     </section>
     <section class="legal-content">

@@ -120,7 +120,7 @@ describe('AdminLayout', () => {
   it('renders admin menus inside non-empty sidebar categories only', async () => {
     const wrapper = await mountLayout()
 
-    expect(wrapper.text()).toContain('白霖共享')
+    expect(wrapper.text()).toContain('DZAI内容创作平台')
     expect(wrapper.text()).toContain('核心运营')
     expect(wrapper.text()).toContain('交易增长')
     expect(wrapper.text()).toContain('配置中心')

@@ -913,7 +913,7 @@ onBeforeUnmount(() => {
             :title="workTitle(previewCurrent)"
             :style="previewZoomStyle"
           />
-          <span class="ai-content-badge works-preview-ai-badge">AI生成 / 白霖共享生成</span>
+          <span class="ai-content-badge works-preview-ai-badge">AI生成 / DZAI内容创作平台生成</span>
         </div>
         <div v-if="previewItems.length > 1" class="works-preview-batch-nav">
           <button data-testid="works-preview-prev" type="button" @click="showPreviousPreview">上一张</button>

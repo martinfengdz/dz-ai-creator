@@ -61,7 +61,7 @@ function staticAsset(path) {
 }
 
 const defaultMiniProgramShareConfig = {
-  title: '白霖共享AI图片生成',
+  title: 'DZAI内容创作平台AI图片生成',
   path: '/pages/home/index',
   imageUrl: staticAsset('home-replica/mountain-hero.png')
 }

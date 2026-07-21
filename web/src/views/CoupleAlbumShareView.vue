@@ -84,7 +84,7 @@ onMounted(() => {
           <span>暂无封面</span>
         </div>
         <div class="couple-album-public-copy">
-          <p>白霖共享情侣相册</p>
+          <p>DZAI内容创作平台情侣相册</p>
           <h1>{{ album.title }}</h1>
           <span>{{ album.location }} · {{ statusText(album.status) }} · {{ completedPages }}/8 页完成</span>
         </div>
